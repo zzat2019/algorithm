@@ -59,7 +59,7 @@ class Bfs
 	private function returnPath($parents, $name, &$res)
 	{
 		if (!in_array($name, $parents)){
-			return 1;
+			return ;
 		}
 		$newArr = array();
 		foreach ($parents as $k => $v){
