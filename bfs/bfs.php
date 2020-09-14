@@ -28,7 +28,7 @@ class Bfs
 				if ($this->isSeller($checkName)){
 					if ($isPath){
 						$res = array();
-						$this->return($this->parent, $checkName, $res);
+						$this->returnPath($this->parent, $checkName, $res);
 						return $res;
 					}else{
 						return true;
@@ -56,7 +56,7 @@ class Bfs
 		return false;
 	}
 
-	private function return($parents, $name, &$res)
+	private function returnPath($parents, $name, &$res)
 	{
 		if (!in_array($name, $parents)){
 			return 1;
@@ -66,7 +66,7 @@ class Bfs
 			$newArr[$k] = $v;
 			if ($v == $name){
 				$res[$k] = $v;
-				return $this->return($newArr, $k, $res);
+				return $this->returnPath($newArr, $k, $res);
 			}
 		}
 	}
